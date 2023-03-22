@@ -1,0 +1,249 @@
+:root {
+  --background: #181823;
+  --background-secondary: #202030;
+  --text-white: #ffffff;
+  --text-white-85: rgba(255, 255, 255, 0.80);
+  --text-gray: #505050;
+  --color: rgb(100, 88, 255);
+  --color-50: rgba(100, 88, 255, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  -webkit-user-drag: none;  /* Safari */
+  -khtml-user-drag: none;   /* Konqueror */
+  -moz-user-drag: none;     /* Firefox */
+  -o-user-drag: none;       /* Opera */
+  -webkit-touch-callout: none; /* iOS Safari */
+}
+
+/* 
+** SCROLL BAR
+*/
+
+
+::-webkit-scrollbar-track {
+  background-color: var(--background-secondary); /* cor de fundo da scrollbar */
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color); /* cor da thumb da scrollbar */
+  border-radius: 15px; /* borda arredondada da thumb */
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.5, var(--color)), color-stop(1, var(--background-secondary)));
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  margin-top: 80px; /* altura da navbar */
+}
+
+/* 
+** NAVBAR
+*/
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  top: 0; /* Adicione essa linha */
+  display: flex;
+  justify-content: center;
+  background-color: var(--background-secondary);
+  border-bottom: 1px solid var(--color-50);
+
+  z-index: 999;
+}
+
+.nav {
+  width: 80%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  color: var(--color);
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.nav ul {
+  display: flex;
+}
+
+.nav ul li {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.nav ul li a {
+  color: var(--text-white-85);
+  font-weight: 500;
+  font-size: large;
+}
+
+/* 
+** MAIN
+*/
+
+.home {
+  display: flex;
+  height: calc(100vh - 80px);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home .about h1 {
+  color: var(--color);
+  font-size: 35px;
+}
+
+.home .about p {
+  color: var(--text-white-85);
+  max-width: 620px;
+  font-size: 25px;
+}
+
+.home figure img {
+  width: 560px;
+  height: auto;
+  animation: flutuar 3s infinite;
+}
+
+.prices {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.prices .card {
+  flex-shrink: 0;
+
+  width: 320px;
+  height: 440px;
+
+  background: var(--background-secondary);
+  color: var(--text-white);
+
+  border-radius: 20px;
+  padding: 30px;
+  margin: 50px;
+  margin-bottom: 0px;
+}
+
+.prices .card .card__description {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color);
+}
+
+.prices .card .card__list {
+  padding-top: 25px;
+  padding-left: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color);
+}
+
+.prices .card .card__list li span {
+  color: var(--color);
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.prices .card .card__btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.prices .card .card__btn .btn {
+  height: 50px;
+  width: 200px;
+  background-color: var(--background);
+  color: var(--text-white-85);
+  border-radius: 10em;
+  cursor: pointer;
+  border: 1px solid var(--background);
+
+  transition: all 400ms ease-in-out;
+}
+
+.prices .card .card__btn .btn:hover {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--color);
+}
+
+/* 
+** MAIN MEDIA QUERY
+*/
+
+@media screen and (max-width: 768px) {
+  .home .about p {
+    max-width: 250px;
+    font-size: 15px;
+  }
+
+  .home figure img {
+    width: 270px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .home .about p {
+    max-width: 500px;
+    font-size: 20px;
+  }
+
+  .home figure img {
+    width: 400px;
+  }
+}
+
+
+/* 
+** KEY FRAMES
+*/
+
+@keyframes flutuar {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
